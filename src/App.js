@@ -14,27 +14,6 @@ class App extends Component {
     showPeople: true
   }
 
-  switchNameHandler = () => {
-    if (this.state.fullToggled === true) {
-      this.setState( {   
-        persons: [
-          { name: 'Tom', age: 27 },
-          { name: 'Max', age: 30 },
-          { name: 'Steph', age: 40 }
-        ],
-        fullToggled: false  })
-    }
-    else {
-      this.setState({   
-        persons: [
-          { name: 'Thomas', age: 27 },
-          { name: 'Maximillian', age: 30 },
-          { name: 'Stephanie', age: 40 }
-        ],
-        fullToggled: true  })
-    }
-  }
-
   nameChangedHandler = (event) => {
     this.setState( {   
       persons: [
@@ -52,6 +31,17 @@ class App extends Component {
     })
   }
 
+  deletePersonHandler = (index) => {
+    // people and people2 assignments are equivalent!
+    const people = this.state.persons.slice();
+    const people2 = [...this.state.persons];
+    people.splice(index, 1);
+
+    this.setState( {
+      persons: people
+    });
+  }
+
   render() {
 
     const style = {
@@ -67,8 +57,9 @@ class App extends Component {
     if (this.state.showPeople) {
       peopleList = (
         <div>
-          {this.state.persons.map(person => {
-            return <Person 
+          {this.state.persons.map((person, index) => {
+            return <Person
+            click={() => this.deletePersonHandler(index)}
             name={person.name} 
             age={person.age} />
           })}
