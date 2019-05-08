@@ -10,7 +10,8 @@ class App extends Component {
       { name: 'Max', age: 30 },
       { name: 'Stephanie', age: 40 }
     ],
-    fullToggled: false
+    fullToggled: false,
+    showPeople: true
   }
 
   switchNameHandler = () => {
@@ -44,6 +45,13 @@ class App extends Component {
       fullToggled: false  })
   }
 
+  togglePeopleHandler = () => {
+    const currentState = this.state.showPeople;
+    this.setState( {
+      showPeople: !currentState
+    })
+  }
+
   render() {
 
     const style = {
@@ -57,25 +65,33 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
+
         <p>This is a paragraph element.</p>
+
         <button 
           style={style}
-          onClick={this.switchNameHandler}>Switch Name
+          onClick={this.togglePeopleHandler}>Show/Hide People
         </button>
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}
-          click={this.switchNameHandler}>
-        </Person>
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          changed={this.nameChangedHandler}>
-        </Person>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}>
-        </Person>
+
+        { this.state.showPeople ? 
+          <div>
+            <Person 
+              name={this.state.persons[0].name} 
+              age={this.state.persons[0].age}
+              click={this.switchNameHandler}>
+            </Person>
+            <Person 
+              name={this.state.persons[1].name} 
+              age={this.state.persons[1].age}
+              changed={this.nameChangedHandler}>
+            </Person>
+            <Person 
+              name={this.state.persons[2].name} 
+              age={this.state.persons[2].age}>
+            </Person>
+          </div> : null
+        }
+
       </div>
     );
   }
