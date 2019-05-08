@@ -62,6 +62,20 @@ class App extends Component {
       cursor: 'pointer'
     };
 
+    let peopleList = null;
+
+    if (this.state.showPeople) {
+      peopleList = (
+        <div>
+          {this.state.persons.map(person => {
+            return <Person 
+            name={person.name} 
+            age={person.age} />
+          })}
+        </div>
+      )
+    }
+
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
@@ -74,22 +88,7 @@ class App extends Component {
         </button>
 
         { this.state.showPeople ? 
-          <div>
-            <Person 
-              name={this.state.persons[0].name} 
-              age={this.state.persons[0].age}
-              click={this.switchNameHandler}>
-            </Person>
-            <Person 
-              name={this.state.persons[1].name} 
-              age={this.state.persons[1].age}
-              changed={this.nameChangedHandler}>
-            </Person>
-            <Person 
-              name={this.state.persons[2].name} 
-              age={this.state.persons[2].age}>
-            </Person>
-          </div> : null
+          peopleList : null
         }
 
       </div>
