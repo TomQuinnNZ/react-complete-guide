@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium, { StyleRoot } from 'radium';
-import './App.css';
+import classes from './App.module.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
   deletePersonHandler = (index) => {
     // people and people2 assignments are equivalent!
     const people = this.state.persons.slice();
-    const people2 = [...this.state.persons];
+    //const people2 = [...this.state.persons];
     people.splice(index, 1);
 
     this.setState( {
@@ -88,34 +88,34 @@ class App extends Component {
       style.backgroundColor = 'red';
     }
 
-    let classes = [];
+    let assignedClasses = [];
+
+    console.log(classes);
 
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
 
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi, I'm a React App</h1>
+      <div className={classes.App}>
+        <h1>Hi, I'm a React App</h1>
 
-          <p className={classes.join(' ')}>This is a paragraph element.</p>
+        <p className={assignedClasses.join(' ')}>This is a paragraph element.</p>
 
-          <button 
-            style={style}
-            onClick={this.togglePeopleHandler}>Show/Hide People
-          </button>
+        <button 
+          style={style}
+          onClick={this.togglePeopleHandler}>Show/Hide People
+        </button>
 
-          { this.state.showPeople ? 
-            peopleList : null
-          }
+        { this.state.showPeople ? 
+          peopleList : null
+        }
 
-        </div>
-      </StyleRoot>
+      </div>
     );
   }
 }
