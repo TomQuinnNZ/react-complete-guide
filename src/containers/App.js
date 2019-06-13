@@ -3,7 +3,6 @@ import Radium from 'radium';
 import classes from './App.module.css';
 import People from '../components/People/People';
 import Person from '../components/People/Person/Person';
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
 
@@ -62,16 +61,8 @@ class App extends Component {
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
-
     let peopleList = null;
+    let btnClass = '';
 
     if (this.state.showPeople) {
       peopleList = (
@@ -83,31 +74,11 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = 'red';
-    }
-
-    let assignedClasses = [];
-
-    console.log(classes);
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push(classes.red);
-    }
-
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push(classes.bold);
+      btnClass = classes.red;
     }
 
     return (
       <div className={classes.App}>
-        <h1>Hi, I'm a React App</h1>
-
-        <p className={assignedClasses.join(' ')}>This is a paragraph element.</p>
-
-        <button 
-          style={style}
-          onClick={this.togglePeopleHandler}>Show/Hide People
-        </button>
 
         { this.state.showPeople ? 
           peopleList : null
