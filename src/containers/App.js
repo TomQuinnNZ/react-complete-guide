@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
+import Radium from 'radium';
 import classes from './App.module.css';
-import Person from './Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import People from '../components/People/People';
+import Person from '../components/People/Person/Person';
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
 
@@ -75,6 +76,10 @@ class App extends Component {
     if (this.state.showPeople) {
       peopleList = (
         <div>
+          <People
+            people={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangedHandler} />
           {this.state.persons.map((person, index) => {
             return <ErrorBoundary><Person
             click={() => this.deletePersonHandler(index)}
