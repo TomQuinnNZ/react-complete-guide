@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import classes from './App.module.css';
 import People from '../components/People/People';
-import Person from '../components/People/Person/Person';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 
@@ -66,20 +66,19 @@ class App extends Component {
 
     if (this.state.showPeople) {
       peopleList = (
-        <div>
           <People
             people={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangedHandler} />
-        </div>
-      );
-
-      btnClass = classes.red;
+      );      
     }
 
     return (
       <div className={classes.App}>
-
+        <Cockpit 
+          showPeople={this.state.showPeople}
+          people={this.state.persons}
+          toggle={this.togglePeopleHandler} />
         { this.state.showPeople ? 
           peopleList : null
         }

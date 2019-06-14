@@ -3,11 +3,17 @@ import classes from './Cockpit.module.css';
 
 const cockpit = (props) => {
 
+    let btnClass = '';
+
+    if (props.showPeople) {
+        btnClass = classes.Red;
+    }
+
     let assignedClasses = [];
-    if (removePropertiesDeep.persons.length <= 2) {
+    if (props.people.length <= 2) {
       assignedClasses.push(classes.red);
     }
-    if (props.persons.length <= 1) {
+    if (props.people.length <= 1) {
       assignedClasses.push(classes.bold);
     }
 
@@ -19,7 +25,7 @@ const cockpit = (props) => {
 
             <button 
             className={btnClass}
-            onClick={this.togglePeopleHandler}>Show/Hide People
+            onClick={props.toggle}>Show/Hide People
             </button>
         </div>
     );
