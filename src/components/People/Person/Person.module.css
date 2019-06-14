@@ -6,3 +6,9 @@
     padding: 16px;
     text-align: center;
 }
+
+.PersonDesc {
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+}

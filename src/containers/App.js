@@ -62,7 +62,6 @@ class App extends Component {
   render() {
 
     let peopleList = null;
-    let btnClass = '';
 
     if (this.state.showPeople) {
       peopleList = (
