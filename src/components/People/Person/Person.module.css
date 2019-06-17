@@ -13,7 +13,9 @@
 }
 
 .deleteButton {
-    text-align: right;
+    float: right;
+    vertical-align: center;
+    padding: 15px 0;
 }
 
 .deleteIcon {
