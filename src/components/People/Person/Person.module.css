@@ -9,6 +9,14 @@
 
 .PersonDesc {
     display: inline-block;
-    width: 50%;
+    width: 40%;
+}
+
+.deleteButton {
+    text-align: right;
+}
+
+.deleteIcon {
     cursor: pointer;
+    
 }
