@@ -1,4 +1,5 @@
 .Person {
+    position: relative;
     width: 60%;
     margin: 16px auto;
     border: 1px solid #eee;
@@ -14,11 +15,13 @@
 
 .deleteButton {
     float: right;
-    vertical-align: center;
     padding: 15px 0;
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
 }
 
 .deleteIcon {
     cursor: pointer;
-    
 }

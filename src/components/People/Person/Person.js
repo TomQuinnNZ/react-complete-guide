@@ -9,13 +9,13 @@ class Person extends Component {
             <div className={styles.Person}>
                 <p className= {styles.PersonDesc}>I'm {this.props.name} and I am {this.props.age} years old.
                 </p>
-                <p className={styles.deleteButton}>
+                <div className={styles.deleteButton}>
                     <MdDelete 
                         className={styles.deleteIcon} 
                         size='2em'
                         onClick={this.props.click}>Delete
                     </MdDelete>
-                </p>
+                </div>
                 <p>{this.props.children}</p>
                 <input type="text" onChange={this.props.changed}/>
             </div>
