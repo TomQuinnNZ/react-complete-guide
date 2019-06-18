@@ -27,6 +27,10 @@ class App extends Component {
     return state;
   }
 
+  componentDidMount() {
+    console.log('App.js componentDidMount');
+  }
+
   nameChangedHandler = (event, id) => {
 
     // match the argument id with a person object

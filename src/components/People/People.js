@@ -25,6 +25,7 @@ class People extends Component {
   }
 
   render() {
+    console.log('People.js rendering...');
     return (
       this.props.people.map((person, index) => {
           return <Person
