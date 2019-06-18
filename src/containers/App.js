@@ -4,7 +4,13 @@ import classes from './App.module.css';
 import People from '../components/People/People';
 import Cockpit from '../components/Cockpit/Cockpit';
 
+
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('App.js constructor');
+  }
 
   state = {
     persons: [
@@ -14,6 +20,11 @@ class App extends Component {
     ],
     fullToggled: false,
     showPeople: true
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('App.js getDerivedStateFromProps', props);
+    return state;
   }
 
   nameChangedHandler = (event, id) => {
@@ -60,7 +71,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log('App.js render');
     let peopleList = null;
 
     if (this.state.showPeople) {
