@@ -25,6 +25,11 @@ class People extends Component {
     console.log('People.js componentDidUpdate');
   }
 
+  componentWillUnmount() {
+    // Runs right before the component is gotten rid of
+    console.log('People.js componentWillUnmount');
+  }
+
   render() {
     console.log('People.js rendering...');
     return (
