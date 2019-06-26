@@ -3,6 +3,7 @@ import Radium from 'radium';
 import classes from './App.module.css';
 import People from '../components/People/People';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 
 class App extends Component {
